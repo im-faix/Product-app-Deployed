@@ -77,9 +77,7 @@ project-root/
 
 ---
 
-## 🖼️ UI Preview
 
-> *(Add screenshot here if needed)*
 
 ---
 

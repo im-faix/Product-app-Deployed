@@ -1,96 +1,114 @@
+# 🛒 Product Management Application (Spring Boot + PostgreSQL + Docker)
 
-# 🛍️ Product Management Web App
-
-This is a simple full-stack CRUD (Create, Read, Update, Delete) application for managing product inventory. It uses a **Spring Boot** REST API for the backend and a **Bootstrap + JavaScript** frontend.
+A **full-stack 3-tier product management system** built with Spring Boot, PostgreSQL, and Docker. Designed using best DevOps practices — containerized, environment-driven, and cloud-deployable. Ideal for showcasing practical DevOps, CI/CD, and backend development skills.
 
 ---
 
-## 🔧 Tech Stack
+## 📸 Architecture Overview
 
-- **Frontend**: HTML, CSS, JavaScript, Bootstrap
-- **Backend**: Spring Boot (Java)
-- **Database**: Postgresql (configurable)
-- **API Communication**: JSON (Fetch API)
+```
++--------------------+         +------------------------+        +--------------------+
+|    Frontend (UI)   |  <-->   |  Backend (Spring Boot) | <-->   |  PostgreSQL (DB)   |
+|   HTML/CSS/JS      |         | REST APIs + JPA/Hibernate       |   Product Data     |
+|   (Static Site)    |         | Business Logic         |        |                    |
++--------------------+         +------------------------+        +--------------------+
+
+         
+```
 
 ---
 
 ## 🚀 Features
 
-- Add a new product
-- Edit existing product
-- Delete product
-- View list of all products
-- Auto-refresh table after each operation
+- CRUD operations on `Product` entity
+- PostgreSQL database integration
+- RESTful APIs with Spring Boot
+- Containerized using Docker (multistage build)
+
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Technologies Used
+
+- **Backend:** Spring Boot 3.5, Java 21
+- **Database:** PostgreSQL
+- **Build Tool:** Maven
+- **Containerization:** Docker
+- **Frontend:** HTML, CSS, JavaScript (Vanilla)
+- **Version Control:** Git, GitHub
+
+---
+
+## ⚙️ Setup Instructions (Docker Compose)
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/im-faix/Product-app-Deployed.git
+cd Product-app-Deployed
+```
+
+
+
+### 2. Run Docker Compose
+
+```bash
+docker-compose up --build
+```
+
+- App will be running on: `http://localhost:8094`
+- PostgreSQL DB exposed at: `localhost:5432`
+
+---
+
+## 🧪 API Endpoints
+
+| Method | Endpoint            | Description            |
+|--------|---------------------|------------------------|
+| GET    | `/products`         | List all products      |
+| POST   | `/products`         | Create new product     |
+| PUT    | `/products/{id}`    | Update product by ID   |
+| DELETE | `/products/{id}`    | Delete product by ID   |
+
+---
+
+## 📈 DevOps Highlights for Resume & LinkedIn
+
+✅ Dockerized Spring Boot microservice  
+✅ PostgreSQL as containerized service  
+✅ Multi-stage Dockerfile build optimization  
+✅ Ready for CI/CD with Jenkins/GitHub Actions  
+✅ GitHub project with README + Architecture diagram  
+✅ REST API development and testing with `curl`/Postman  
+
+---
+
+## 📦 Folder Structure
 
 ```
-project-root/
-│
-├── backend/
-│   ├── src/main/java/com/example/productapi/
-│   │   ├── Product.java
-│   │   ├── ProductController.java
-│   │   └── ProductRepository.java
-│   └── resources/application.properties
-│
-├── static/
-│   ├── index.html
-│   ├── script.js
-│   └── style.css
-│
+.
+├── Dockerfile
+├── docker-compose.yml
+├── src/
+│   └── main/java/... (Spring Boot App)
+├── static/ (Frontend)
+├── .env
 └── README.md
 ```
 
 ---
 
-## ⚙️ How to Run
+## 💼 Author
 
-### 🔙 Backend (Spring Boot)
-1. Open the project in your IDE (IntelliJ, Eclipse, etc.)
-2. Configure `application.properties`:
-   ```properties
-   spring.datasource.url=jdbc:h2:mem:testdb
-   spring.h2.console.enabled=true
-   spring.jpa.show-sql=true
-   spring.jpa.hibernate.ddl-auto=update
-   ```
-3. Run the application (`ProductApplication.java`)
-4. API will be available at: `http://localhost:8094/products`
-
-### 🌐 Frontend
-1. Open `index.html` from the frontend folder in your browser
-2. Ensure the Spring Boot backend is running
-
----
-
-## 📡 REST API Endpoints
-
-| Method | Endpoint         | Description        |
-|--------|------------------|--------------------|
-| GET    | `/products`      | Retrieve all products   |
-| POST   | `/products`      | Add a new product       |
-| PUT    | `/products/{id}` | Update existing product |
-| DELETE | `/products/{id}` | Delete a product        |
+**Mohammed Faizan**  
+DevOps Engineer & Backend Developer  
+🔗 [LinkedIn](https://www.linkedin.com/in/your-profile)  
+🌐 [GitHub](https://github.com/im-faix)
 
 ---
 
 
 
----
+## 📌 License
 
-## 🙏 Acknowledgements
-
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [Bootstrap](https://getbootstrap.com/)
-- [JavaScript Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-
----
-
-## 📃 License
-
-Licensed under the [MIT License](https://opensource.org/licenses/MIT)
-
-
+This project is open-source and free to use for educational and professional purposes.

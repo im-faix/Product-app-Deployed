@@ -45,4 +45,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8094
-      nodePort: 30036
+      nodePort: 30037

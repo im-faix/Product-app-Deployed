@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: product-app
-          image: product-app:latest
+          image: productapp:latest
           ports:
             - containerPort: 8094
           env:

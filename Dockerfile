@@ -8,3 +8,5 @@ WORKDIR /execute
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8094
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
+
+# this is only for java not postgresql

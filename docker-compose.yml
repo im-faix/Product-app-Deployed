@@ -1,24 +1,25 @@
 version: "3.8"
+services :
 
-services:
-  postgres:
-    image: postgres:15
-    container_name: postgres
-    environment:
-      POSTGRES_DB: productdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    ports:
+  postgres :
+    container_name : postgres_container
+    image : postgres:15
+    environment : 
+      POSTGRES_DB : productdb
+      POSTGRES_USER : postgres
+      POSTGRES_PASSWORD : postgres
+    ports :
       - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    volumes :
+       - postgres_data:/var/lib/postgresql/data
+
 
   product-app:
-    build: .
-    container_name: product-app
-    ports:
+    container_name : product_app
+    image : faixan01/product-app:20250801095659
+    ports :
       - "8094:8094"
-    depends_on:
+    depends_on :
       - postgres
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/productdb
@@ -30,4 +31,5 @@ services:
       SERVER_ADDRESS: 0.0.0.0
 
 volumes:
-  postgres_data:
+  postgres_data: 
+         

@@ -15,6 +15,7 @@ spec:
       containers:
         - name: postgres
           image: postgres:15
+          imagePullPolicy: Always
           ports:
             - containerPort: 5432
           env:
@@ -27,6 +28,23 @@ spec:
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+              ephemeral-storage: "1Gi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+              ephemeral-storage: "2Gi"
+          readinessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          securityContext:
+            runAsUser: 0
+            allowPrivilegeEscalation: false
       volumes:
         - name: postgres-storage
           persistentVolumeClaim:
@@ -43,3 +61,21 @@ spec:
     - protocol: TCP
       port: 5432
       targetPort: 5432
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-db-access
+spec:
+  podSelector:
+    matchLabels:
+      app: postgres
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector: {}
+  egress:
+    - to:
+        - podSelector: {}

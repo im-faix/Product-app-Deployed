@@ -102,7 +102,7 @@ docker-compose up --build
 
 **Mohammed Faizan**  
 DevOps Engineer & Backend Developer  
-🔗 [LinkedIn](https://www.linkedin.com/in/your-profile)  
+🔗 [LinkedIn](https://www.linkedin.com/in/faizan9)  
 🌐 [GitHub](https://github.com/im-faix)
 
 ---
